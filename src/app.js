@@ -8,6 +8,7 @@ const partialpath = path.join(__dirname, '../templates/partials')
 app.use(express.static(path.join(__dirname, '../public')))
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+const port=process.env.PORT||3000
     //setup handlers and views
 app.set('view engine', 'hbs')
 app.set('views', viewpath)
@@ -79,7 +80,7 @@ app.get("*", (req, res) => {
         message: "Page NOt found"
     })
 })
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("RUnning!")
         //console.log(__dirname, __filename)
 })
